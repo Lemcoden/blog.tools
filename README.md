@@ -1,10 +1,10 @@
 # blog.tools
 #### sign_water 批量添加文字水印的小脚本
-本脚本基于imagemagick ，使用前请确保安装了imagemagick
-下载安装<a href="https://imagemagick.org/script/download.php">请点这里</a>
-使用方法
-将sh 文件放到需要处理的图片的同级文件夹下
-添加执行权限
+本脚本基于imagemagick ，使用前请确保安装了imagemagick<br/>
+下载安装<a href="https://imagemagick.org/script/download.php">请点这里</a><br/>
+使用方法:<br/>
+将sh 文件放到需要处理的图片的同级文件夹下<br/>
+添加执行权限<br/>
 ```
 chmod u+x sign_water.sh
 ```
