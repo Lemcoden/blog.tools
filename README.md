@@ -30,3 +30,27 @@ chmod u+x sign_water.sh
 ![效果图](http://picture.lemcoden.xyz/node_js_path.png)
 
 当第一次配置完成之后，会在本地生成一个sign_config.sh 文件，保留这个文件，下次运行可以跳过繁琐的水印图定义<br/>
+#### thunder_down 迅雷协议(以thunder:开头的url)的下载脚本
+本脚本基于wget,没有wget命令的请他通过apt或者yum进行下载安装．
+使用方法：<br/>
+下载thunder_down.sh
+添加执行权限
+```
+chmod u+x thunder_down.sh
+```
+可以直接下载
+```
+thunder_down.sh thunder://QUFodHRwOi8vZG93bi5va2Rvd25sb2FkOC5jb20vMjAyMDA2MTgvMTAxNDBfMDY2NTllZTEv6ZqQ56fasd5GFE6KeS6JC9MTIubXA0Wlo=
+```
+可进行批量下载，地址之间空格分割
+```
+thunder_down.sh thunder://QUFodHRwOi8vZG93bi5va2Rvd25sb2FkOC5jb20vMjAyMDA2MTgvMTAxNDBfMDY2NTllZTEv6ZqQ56fasd5GFE6KeS6JC9MTIubXA0Wlo=　thunder://QUFodHRwOi8vZG93bi5va2Rvd25sb2FkOC5jb20vMjAyMDA2MTgvMTAxNDBfMDY2NTllZTEv6ZqQ56fasd5GFE6KeS6JC9MTIubXA0Wlo=
+```
+也可以通过-f选项，下载文件中的url地址的文件
+```
+thunder_down.sh -f downurls.txt
+```
+可以通过-d选项，指定下载目录
+```
+thunder_down.sh -f downurls.txt -d download_dir
+```
