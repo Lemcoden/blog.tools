@@ -29,9 +29,9 @@ function thunder_download(){
 	
 	if [ -n "$dest_dir" ] 
 	then	
-      	wget -r $down_urls -P $dest_dir 
+      	wget $down_urls -P $dest_dir 
 	else 
-	wget -r $down_urls 
+	wget $down_urls 
 	fi
 
 }
