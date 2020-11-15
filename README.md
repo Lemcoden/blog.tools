@@ -5,6 +5,7 @@
 使用方法:<br/>
 将sh 文件放到需要处理的图片的同级文件夹下<br/>
 添加执行权限<br/>
+
 ```
 chmod u+x sign_water.sh
 ```
@@ -12,6 +13,7 @@ chmod u+x sign_water.sh
 中间选项都已给出提示 <br/>
 特别说明一下水印位置参数分为Center,South,North,East,West,SouthEast,NorthEast,SouthWest,NorthWest九个，后面的ｘ，ｙ是向左，向上调整的像素值 <br/>
 在此给出一个示例和效果 <br/>
+
 ```
 请输入水印文字内容
 		from\ lemcoden.xyz
@@ -30,6 +32,15 @@ chmod u+x sign_water.sh
 ![效果图](http://picture.lemcoden.xyz/node_js_path.png)
 
 当第一次配置完成之后，会在本地生成一个sign_config.sh 文件，保留这个文件，下次运行可以跳过繁琐的水印图定义<br/>
+
+如果有特定的图片组需要打水印可以直接这样执行
+
+```
+./sign_water.sh a.jpg b.jpg c.png..........
+```
+
+
+
 #### thunder_down 迅雷协议(以thunder:开头的url)的下载脚本
 本脚本基于wget,没有wget命令的请他通过apt或者yum进行下载安装．
 使用方法：<br/>

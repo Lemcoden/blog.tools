@@ -149,38 +149,48 @@ generate_parameter(){
 
 
 read_config_file
+if [ $# != 0 ] 
+	then 
+	echo "开始生成水印图．．．．"
+	generate_watermark
+	for  image_file in $*  
+	do
+		image_file=`pwd`'/'$image_file
+		sign_single_pic $image_file
+	done
+else
+	read -p "为指定图片打水印请输入１
+	为当前文件夹下所有图片文件打上水印请输入２
+	(在２的基础上)递归调用所有文件夹打水印请输入３
+	" NUM
+	echo "您输入的的值为　$NUM"
+	echo "开始生成水印图．．．．"
+	generate_watermark
+	echo "生成完毕．．．．"
 
-read -p "为指定图片打水印请输入１
-为当前文件夹下所有图片文件打上水印请输入２
-(在２的基础上)递归调用所有文件夹打水印请输入３
-" NUM
-echo "您输入的的值为　$NUM"
-echo "开始生成水印图．．．．"
-generate_watermark
-echo "生成完毕．．．．"
-
-case $NUM in
-			1)
-			read  -p "请输入要打入水印的图片路径
-			" image_file
-			echo "正在为图片打上水印"
-			sign_single_pic $image_file
-			echo "打印完毕"
+	case $NUM in
+				1)
+				read  -p "请输入要打入水印的图片路径
+				" image_file
+				echo "正在为图片打上水印"
+				sign_single_pic $image_file
+				echo "打印完毕"
+				;;
+				2)
+				echo "正在为图片打上水印"
+				sign_watermark_all
+				echo "打印完毕"
+				;;
+				3)
+				echo "正在为图片打上水印"
+				sign_watermark_recursive
+				echo "打印完毕"
+				;;
+				*)
+							echo "请输入正确的打印模式"
 			;;
-			2)
-			echo "正在为图片打上水印"
-			sign_watermark_all
-			echo "打印完毕"
-			;;
-			3)
-			echo "正在为图片打上水印"
-			sign_watermark_recursive
-			echo "打印完毕"
-			;;
-			*)
-						echo "请输入正确的打印模式"
-		;;
-esac
-echo "正在删除水印图．．．．"
-rm -r my_label.png
-echo "删除完毕"
+	esac
+	echo "正在删除水印图．．．．"
+	rm -r my_label.png
+	echo "删除完毕"
+fi
